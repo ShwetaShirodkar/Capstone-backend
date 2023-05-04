@@ -1,6 +1,5 @@
 package com.example.sss.lms.domain;
 
-import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,8 +31,7 @@ public class User {
 
     @Column(nullable = false)
     private String password;
-    
+
     // @Column(nullable = false)
     // private String role;
-    // private LocalDate created;
 }
