@@ -7,7 +7,6 @@ import java.util.List;
 
 public interface CourseService {
 
-    Integer createNewBooking(CoursesDto dto);
 
     Integer createNewCourse(CoursesDto dto);
 

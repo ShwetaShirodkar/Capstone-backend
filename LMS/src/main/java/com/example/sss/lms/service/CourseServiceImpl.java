@@ -25,15 +25,13 @@ public class CourseServiceImpl implements CourseService {
     private final CourseMapper mapper;
 
 
-    @Override
-    public Integer createNewBooking(CoursesDto dto) {
-        repository.save(mapper.toDomain(dto));
-        return 1;
-    }
+    
+    
 
     @Override
     public Integer createNewCourse(CoursesDto dto) {
-        return null;
+        repository.save(mapper.toDomain(dto));
+        return 1;
     }
 
     @Override

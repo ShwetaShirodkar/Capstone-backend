@@ -76,7 +76,7 @@ public class CoursesController {
         return ResponseEntity.status(200).body(response);
     }
     @GetMapping(value = "/getCourseById/{courseId}", produces = MediaType.APPLICATION_JSON_VALUE )
-    public ResponseEntity<AppResponse<CoursesDto>> getBookingById(@PathVariable Long courseId) {
+    public ResponseEntity<AppResponse<CoursesDto>> getCourseById(@PathVariable Long courseId) {
 
         final CoursesDto dto = service.fetchCourseDetails(courseId);
 

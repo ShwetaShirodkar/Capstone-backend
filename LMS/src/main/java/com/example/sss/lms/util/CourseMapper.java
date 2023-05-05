@@ -4,15 +4,12 @@ import com.example.sss.lms.domain.Courses;
 import com.example.sss.lms.dto.CoursesDto;
 import org.springframework.stereotype.Component;
 
-
-
-
 @Component
 public class CourseMapper {
 
     public Courses toDomain(CoursesDto dto)
     {
-        return new Courses(dto.getCourseID(), dto.getCourseName(), dto.getFacultyName(), dto.getMaterial(), dto.getRecordings(), dto.getStartDate(), dto.getEndDate());
+        return new Courses(dto.getCourseID(), dto.getCourseName(), dto.getFacultyName(), dto.getStartDate(), dto.getEndDate(), dto.getMaterial(), dto.getRecordings());
 
     }
 

@@ -3,8 +3,9 @@
 POST http://localhost:8080/courses/createNewCourse HTTP/1.1
 content-type: application/json
 
-{ "courseId" : "2", 
-  "courseName" : "Python", 
+ { 
+  "courseId" : "1", 
+  "courseName" : "java", 
   "facultyName" : "Shweta", 
   "material" : "https://www.w3schools.com/html/html_css.asp",
   "recordings": "https://meet.google.com/woi-gjix-jsx",
@@ -19,4 +20,4 @@ GET http://localhost:8080/courses/list
 DELETE http://localhost:8080/courses/delete/6
 
 ### Get All user 
-GET http://localhost:8080/courses/getCourseById/8
+GET http://localhost:8080/courses/getCourseById/6

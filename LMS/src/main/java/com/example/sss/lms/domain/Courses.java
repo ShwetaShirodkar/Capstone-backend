@@ -26,12 +26,14 @@ public class Courses {
     @Column(nullable = false)
     private String facultyName;
 
+    private LocalDate startDate;
+
+    private LocalDate endDate;
 
     private String material;
-
+    
     private String recording;
 
-    private LocalDate startDate;
-    private LocalDate endDate;
+
 
 }
