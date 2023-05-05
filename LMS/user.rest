@@ -1,11 +1,11 @@
 ### Create New User
-POST http://localhost:8080/user/create HTTP/1.1
+POST http://localhost:8080/user/ HTTP/1.1
 content-type: application/json
 
 {
-    "userName" : "shweta",
-    "emailId": "shweta@gmail.com",
-    "password" : "123"
+    "userName" : "ghj",
+    "password" : "123",
+    "role" : "user"
 }
 
 ### Login
@@ -13,6 +13,6 @@ POST http://localhost:8080/user/login HTTP/1.1
 content-type: application/json
 
 {
-    "userName" : "ccc",
-    "password" : "123"
+    "userName" : "abc",
+    "password" : "1234"
 }

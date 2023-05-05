@@ -12,6 +12,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
@@ -25,13 +27,9 @@ public class User {
 
     @Column(unique = true, nullable = false)
     private String userName;
-
-    @Column(unique = true, nullable = false)
-    private String emailId;
-
     @Column(nullable = false)
     private String password;
-
-    // @Column(nullable = false)
-    // private String role;
+    @Column(nullable = false)
+    private String role;
+    private LocalDate created;
 }

@@ -9,5 +9,5 @@ import com.example.sss.lms.domain.User;
 
 public interface UserRepository extends JpaRepository<User, Long>{
 
-    Optional<User> getByEmailIdAndPassword(String emailId, String password);
+    Optional<User> findByUserNameAndPassword(String userName, String password);
 }

@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.sss.lms.dto.AppResponse;
-import com.example.sss.lms.dto.Userdto;
+import com.example.sss.lms.dto.CreateUserDto;
+import com.example.sss.lms.dto.LoginDto;
+import com.example.sss.lms.dto.UserDto;
 import com.example.sss.lms.service.UserService;
 
 import lombok.AllArgsConstructor;
@@ -23,11 +25,11 @@ import lombok.AllArgsConstructor;
 @RequestMapping(value = "/user")
 @RestController
 public class UserController {
-    @Autowired
+    
     private final UserService service;
 
-    @PostMapping(value = "/create", produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE )
-    public ResponseEntity<AppResponse<Integer>> signup(@Valid @RequestBody Userdto dto) {
+    @PostMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE )
+    public ResponseEntity<AppResponse<Integer>> signup(@Valid @RequestBody CreateUserDto dto) {
         final Integer sts = service.signup(dto);
 
         AppResponse<Integer> res = AppResponse.<Integer>builder()
@@ -39,11 +41,11 @@ public class UserController {
         return ResponseEntity.ok().body(res);
     }
 
-    @PostMapping(value = "/login/{emailId}/{password}", produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE )
-    public ResponseEntity<AppResponse<Userdto>> login(@Valid @PathVariable String emailId,@PathVariable String password) {
-        final Userdto resDto = service.login(emailId,password);
+    @PostMapping(value = "/login", produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE )
+    public ResponseEntity<AppResponse<UserDto>> login(@Valid @RequestBody LoginDto dto) {
+        final UserDto resDto = service.login(dto);
 
-        AppResponse<Userdto> res = AppResponse.<Userdto>builder()
+        AppResponse<UserDto> res = AppResponse.<UserDto>builder()
                                                 .sts("success")
                                                 .msg("Login Success")
                                                 .bd(resDto)
