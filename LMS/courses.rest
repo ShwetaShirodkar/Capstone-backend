@@ -1,23 +1,22 @@
 ### Create New Account
 
-POST http://localhost:8080/courses/createNewCourse HTTP/1.1 content-type: application/json
+POST http://localhost:8080/courses/createNewCourse HTTP/1.1
+content-type: application/json
 
-{ 
-    "courseId" : "2",
-    "courseName" : "Python",
-    "facultyName" : "Shweta",
-    "startDate":"2020-01-01",
-    "endDate": "2022-01-02",
-    "material" : "https://www.w3schools.com/html/html_css.asp",
-    "recordings": "https://meet.google.com/woi-gjix-jsx",
-
+{ "courseId" : "2", 
+  "courseName" : "Python", 
+  "facultyName" : "Shweta", 
+  "material" : "https://www.w3schools.com/html/html_css.asp",
+  "recordings": "https://meet.google.com/woi-gjix-jsx",
+  "startDate":"2020-01-01", 
+  "endDate": "2022-01-02" 
 }
 
 ### Get All user 
 GET http://localhost:8080/courses/list
 
-### 
-Delete user By Id DELETE http://localhost:8080/courses/delete/
+### Delete user By Id 
+DELETE http://localhost:8080/courses/delete/6
 
-### 
-Get All user GET http://localhost:8080/courses/getCourseById/2
+### Get All user 
+GET http://localhost:8080/courses/getCourseById/8
