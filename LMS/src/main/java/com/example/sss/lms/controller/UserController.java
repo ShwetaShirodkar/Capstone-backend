@@ -40,7 +40,7 @@ public class UserController {
         return ResponseEntity.ok().body(res);
     }
 
-    @GetMapping(value = "/login/{emailId}/{password}", produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE )
+    @PostMapping(value = "/login/{emailId}/{password}", produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE )
     public ResponseEntity<AppResponse<Userdto>> login(@Valid @PathVariable String emailId,@PathVariable String password) {
         final Userdto resDto = service.login(emailId,password);
 
