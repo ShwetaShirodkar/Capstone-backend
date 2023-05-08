@@ -17,28 +17,30 @@ import lombok.ToString;
 @Setter
 @ToString
 public class CoursesDto {
-
-    private long courseID;
+    private long courseId;
 
     @NotEmpty(message = "Username cant be empty")
     @NotNull(message = "Username cant be null")
     @NotBlank(message = "Username cant be blank")
     private String courseName;
 
+
+
     @NotEmpty(message = "Username cant be empty")
     @NotNull(message = "Username cant be null")
     @NotBlank(message = "Username cant be blank")
     private String facultyName;
 
+
     private LocalDate startDate;
 
-    private LocalDate endDate;
 
+
+    private LocalDate endDate;
     @NotBlank(message = "Material link cannot be blank")
     private String material;
-
     @NotBlank(message = "Material link cannot be blank")
-    private String recordings;
+    private String recording;
 
 
 

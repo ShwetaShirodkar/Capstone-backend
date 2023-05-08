@@ -1,11 +1,11 @@
-### Create New Account
+### Create New Course
 
 POST http://localhost:8080/courses/createNewCourse HTTP/1.1
 content-type: application/json
 
  { 
-  "courseId" : "1", 
-  "courseName" : "java", 
+  "courseId" : "15", 
+  "courseName" : "c++", 
   "facultyName" : "Shweta", 
   "material" : "https://www.w3schools.com/html/html_css.asp",
   "recordings": "https://meet.google.com/woi-gjix-jsx",
@@ -13,11 +13,28 @@ content-type: application/json
   "endDate": "2022-01-02" 
 }
 
-### Get All user 
+### Get All Course 
 GET http://localhost:8080/courses/list
 
-### Delete user By Id 
-DELETE http://localhost:8080/courses/delete/6
+### Delete Course By Id 
+DELETE http://localhost:8080/courses/delete/37
 
-### Get All user 
-GET http://localhost:8080/courses/getCourseById/6
+### Get  Course 
+GET http://localhost:8080/courses/getCourseById/28
+
+### Update Course
+PUT http://localhost:8080/courses/updateCourse HTTP/1.1 
+content-type: application/json
+
+{
+   "courseId" : "27", 
+  "courseName" : "Java", 
+  "facultyName" : "shreya", 
+  "material" : "https://www/html/html_css.asp",
+  "recording": "https://meet.google.com/woi-gjix-jsx",
+  "startDate":"2020-01-01", 
+  "endDate": "2022-01-02"
+}
+
+### Get Course By Name 
+GET http://localhost:8080/courses/name?courseName=RPA

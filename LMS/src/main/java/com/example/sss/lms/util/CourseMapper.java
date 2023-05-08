@@ -9,7 +9,7 @@ public class CourseMapper {
 
     public Courses toDomain(CoursesDto dto)
     {
-        return new Courses(dto.getCourseID(), dto.getCourseName(), dto.getFacultyName(), dto.getStartDate(), dto.getEndDate(), dto.getMaterial(), dto.getRecordings());
+        return new Courses(dto.getCourseId(), dto.getCourseName(), dto.getFacultyName(), dto.getStartDate(), dto.getEndDate(), dto.getMaterial(), dto.getRecording());
 
     }
 

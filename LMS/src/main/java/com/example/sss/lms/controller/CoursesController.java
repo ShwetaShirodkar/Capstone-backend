@@ -48,10 +48,10 @@ public class CoursesController {
 
         return ResponseEntity.ok().body(response);
     }
-    @PutMapping(value = "/updateCourse", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<AppResponse<Integer>> updateCourse(@RequestBody CoursesDto dto) {
+    @PutMapping(value = "/updateCourse/{courseId}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<AppResponse<Integer>> updateCourse(@RequestBody CoursesDto dto,@PathVariable Long courseId) {
 
-        final Integer sts = service.updateCourse(dto);
+        final Integer sts = service.updateCourse(dto,courseId);
 
         final AppResponse<Integer> response = AppResponse.<Integer>builder()
                 .sts("success")
@@ -76,15 +76,23 @@ public class CoursesController {
         return ResponseEntity.status(200).body(response);
     }
     @GetMapping(value = "/getCourseById/{courseId}", produces = MediaType.APPLICATION_JSON_VALUE )
-    public ResponseEntity<AppResponse<CoursesDto>> getCourseById(@PathVariable Long courseId) {
+    public ResponseEntity<AppResponse<CoursesDto>> getBookingById(@PathVariable Long courseId) {
 
         final CoursesDto dto = service.fetchCourseDetails(courseId);
 
         final AppResponse<CoursesDto> response = AppResponse.<CoursesDto>builder()
                 .sts("success")
-                .msg("booking Details")
+                .msg("Course Details")
                 .bd(dto)
                 .build();
         return ResponseEntity.ok().body(response);
     }
+
+    @GetMapping(value = "/name", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<AppResponse<List<CoursesDto>>> getCoursesByCourseName(@RequestParam String courseName) {
+        List<CoursesDto> courses = service.getCoursesByCourseName(courseName);
+        AppResponse<List<CoursesDto>> response = AppResponse.<List<CoursesDto>>builder().sts("success").msg("All Courses").bd(courses).build();
+        return ResponseEntity.status(200).body(response);
+    }
+
 }

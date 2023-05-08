@@ -4,6 +4,6 @@ public class CourseNotFoundException extends RuntimeException {
 
     public CourseNotFoundException(String msg)
     {
-        super("booking not found");
+        super("Course not found");
     }
 }

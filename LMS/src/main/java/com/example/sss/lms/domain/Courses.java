@@ -8,6 +8,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.time.LocalDate;
 
+
 @Entity
 @Getter
 @Setter
@@ -27,11 +28,11 @@ public class Courses {
     private String facultyName;
 
     private LocalDate startDate;
-
     private LocalDate endDate;
 
+
     private String material;
-    
+
     private String recording;
 
 
