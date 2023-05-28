@@ -1,0 +1,35 @@
+### Create New Question 
+POST http://localhost:8080/questions/ HTTP/1.1 
+content-type: application/json
+
+{ "id" : 4, "studentName" : "Bhushan", "question" : "What is nodejs?" }
+
+### Get Question by Id 
+GET http://localhost:8080/questions/61
+
+### Get all Questions 
+GET http://localhost:8080/questions HTTP/1.1
+
+### Create New Answer 
+POST http://localhost:8080/questions/answer/61
+content-type: application/json
+
+{
+"answer": "Node.js is a back-end JavaScript runtime environment"
+}
+
+### Update Answer
+
+PUT http://localhost:8080/questions/answer/2 HTTP/1.1 
+content-type: application/json
+
+{
+"answer" : "abcdef"
+}
+
+### Delete Answer By Id 
+DELETE http://localhost:8080/questions/answer/110
+
+### Delete Question By Id 
+DELETE http://localhost:8080/questions/110
+
