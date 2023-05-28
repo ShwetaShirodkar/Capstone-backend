@@ -13,5 +13,4 @@ public class DynamicMapper {
         BeanUtils.copyProperties(entity, dto);
         return dto;
     }
-
 }

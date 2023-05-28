@@ -15,7 +15,7 @@ public interface UserService {
     Integer signup(CreateUserDto dto);
 
     UserDto login(LoginDto dto) throws UserNotFoundException;
-    
+
     LoginResponseDto loginUserForResponse(LoginDto dto);
 
     List<UserDto> getAllUser ();
@@ -28,6 +28,9 @@ public interface UserService {
     List<StudentEnrolledDto> getAllStudentEnrolled();
 
 //    List<UserCoursesDto> getCurrentEnrollments(Long userId);
+    Integer deleteUser(Long userId) throws UserNotFoundException;
+
+    Integer updateUser(CreateUserDto dto);
 
 
 }

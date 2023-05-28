@@ -9,9 +9,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -72,6 +74,7 @@ public class UserController {
                 .build();
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
+    
     @PostMapping(value = "/{userId}/userEnrollments/{courseId}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<AppResponse<Integer>> enrollCourse(@Valid @PathVariable Long userId, @PathVariable Long courseId) {
         Integer enrollCourse = service.enrollCourse(userId, courseId);
@@ -86,6 +89,7 @@ public class UserController {
 
 
     @GetMapping(value = "/getuserEnrollments/{userId}", produces = MediaType.APPLICATION_JSON_VALUE)
+
     public ResponseEntity<AppResponse<List<UserCoursesDto>>> findAll(@PathVariable Long userId) {
        List<UserCoursesDto> sts=  service.getAllEnrollments(userId);
         AppResponse<List<UserCoursesDto>> response=AppResponse.<List<UserCoursesDto>>builder()
@@ -128,4 +132,43 @@ public class UserController {
                 .build();
         return ResponseEntity.ok().body(response);
     }
+    @PutMapping(value = "/updateUser", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<AppResponse<Integer>> updateCourse(@RequestBody CreateUserDto dto) {
+
+        final Integer sts = service.updateUser(dto);
+
+        final AppResponse<Integer> response = AppResponse.<Integer>builder()
+                .sts("success")
+                .msg("User Updated Successfully")
+                .bd(sts)
+                .build();
+
+        return ResponseEntity.ok().body(response);
+    }
+//    @CrossOrigin
+//    @PutMapping(value="/updateUser", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseEntity<AppResponse<Integer>> updateUser(@Valid @RequestBody CreateUserDto dto){
+//        final Integer sts = service.updateUser(dto);
+//        final AppResponse<Integer> response = AppResponse.<Integer>builder()
+//                .sts("User Updated Successfully")
+//                .bd(sts).build();
+//        return ResponseEntity.ok().body(response);
+//
+//    }
+
+
+    @DeleteMapping(value = "/delete/{userId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<AppResponse<Integer>> deleteCourse(@PathVariable Long userId) {
+
+        final Integer sts = service.deleteUser(userId);
+
+        final AppResponse<Integer> response = AppResponse.<Integer>builder()
+                .sts("success")
+                .msg("User Deleted Successfully")
+                .bd(sts)
+                .build();
+
+        return ResponseEntity.status(200).body(response);
+    }
+
 }

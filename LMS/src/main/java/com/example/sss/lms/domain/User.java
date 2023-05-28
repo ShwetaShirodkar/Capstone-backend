@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -30,13 +32,26 @@ public class User {
     private Long userId;
 
     @Column(unique = true, nullable = false)
+    @NotNull(message = "userName should not be null")
+    @NotBlank(message = "usename is mandatory")
     private String userName;
+    @NotNull(message = "Password should not be null")
+    @NotBlank(message = "Password is mandatory")
     @Column(nullable = false)
     private String password;
+    @NotNull(message = "Role should not be null")
+    @NotBlank(message = "Role is mandatory")
     @Column(nullable = false)
     private String role;
     private LocalDate created;
 
     @ManyToMany(mappedBy = "users", cascade = CascadeType.ALL)
     private List<Courses> courses=new ArrayList<>();
+
+    // @OneToMany(mappedBy = "users", cascade=CascadeType.ALL)
+    // private List<GradesAndFeedback> gradesAndFeedback=new ArrayList<>();
+
+
+
+
 }
