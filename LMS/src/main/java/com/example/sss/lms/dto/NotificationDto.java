@@ -19,14 +19,14 @@ import lombok.ToString;
 @Setter
 @Getter
 public class NotificationDto {
-    
+
     private long id;
 
 
     @NotNull(message="Date cannot be null")
     @FutureOrPresent(message = "Date should not be a past date")
     private LocalDate date;
-    
+
     @NotEmpty(message="Notification cannot be empty")
     @NotNull(message="Notification cannot be null")
     @NotBlank(message="Notification cannot be blank")

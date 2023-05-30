@@ -44,9 +44,9 @@ public class QuestionController {
     public ResponseEntity<AppResponse<List<QuestionDto>>> getAllQuestions() {
         List<QuestionDto> questions = questionService.getAllQuestions();
         AppResponse<List<QuestionDto>> response = AppResponse.<List<QuestionDto>>builder()
-        .sts("success")
-        .msg("All Question and answers")
-        .bd(questions).build();
+                .sts("success")
+                .msg("All Question and answers")
+                .bd(questions).build();
         return ResponseEntity.status(200).body(response);
     }
 
@@ -64,7 +64,7 @@ public class QuestionController {
         return ResponseEntity.status(HttpStatus.CREATED).body(createdAnswer);
     }
 
-    
+
 
     @CrossOrigin
     @PutMapping("/answer/{id}")

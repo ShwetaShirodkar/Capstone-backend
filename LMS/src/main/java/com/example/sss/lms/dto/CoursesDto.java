@@ -1,16 +1,13 @@
 package com.example.sss.lms.dto;
+
+
+import lombok.*;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter

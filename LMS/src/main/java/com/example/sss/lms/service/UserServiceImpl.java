@@ -6,30 +6,19 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.example.sss.lms.domain.Courses;
-import com.example.sss.lms.domain.User;
-import com.example.sss.lms.dto.CreateUserDto;
-import com.example.sss.lms.dto.LoginDto;
-import com.example.sss.lms.dto.LoginResponseDto;
-import com.example.sss.lms.dto.StudentEnrolledDto;
-import com.example.sss.lms.dto.UserCoursesDto;
-import com.example.sss.lms.dto.UserDto;
-import com.example.sss.lms.dto.UserUpadteDto;
-import com.example.sss.lms.exception.CourseNotFoundException;
-import com.example.sss.lms.exception.DuplicateUserNameFoundException;
-import com.example.sss.lms.exception.InvalidPasswordException;
-import com.example.sss.lms.exception.InvalidRoleException;
-import com.example.sss.lms.exception.UserNotFoundException;
+import com.example.sss.lms.dto.*;
+import com.example.sss.lms.exception.*;
 import com.example.sss.lms.repository.CoursesRepository;
-import com.example.sss.lms.repository.UserRepository;
 import com.example.sss.lms.util.DynamicMapper;
 
-import lombok.AllArgsConstructor;
+import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Service;
 
+import com.example.sss.lms.domain.User;
+import com.example.sss.lms.repository.UserRepository;
+
+import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 @Service

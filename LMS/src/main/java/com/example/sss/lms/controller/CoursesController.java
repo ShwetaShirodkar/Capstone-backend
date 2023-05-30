@@ -1,5 +1,6 @@
 package com.example.sss.lms.controller;
 
+import com.example.sss.lms.dto.AppResponse;
 import com.example.sss.lms.dto.CoursesDto;
 import com.example.sss.lms.service.CourseService;
 import lombok.AllArgsConstructor;
@@ -9,8 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import com.example.sss.lms.dto.AppResponse;
-
 
 @CrossOrigin
 @AllArgsConstructor

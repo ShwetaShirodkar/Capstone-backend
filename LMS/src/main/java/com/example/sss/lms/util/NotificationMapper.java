@@ -7,7 +7,7 @@ import com.example.sss.lms.dto.NotificationDto;
 
 @Component
 public class NotificationMapper {
-    
+
     public Notification toDomain(NotificationDto dto){
         return Notification.builder().date(dto.getDate()).notification(dto.getNotification()).build();
 

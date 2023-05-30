@@ -1,15 +1,9 @@
 package com.example.sss.lms.service;
-import com.example.sss.lms.dto.UserDto;
-import com.example.sss.lms.dto.UserUpadteDto;
+
+import com.example.sss.lms.dto.*;
 import com.example.sss.lms.exception.UserNotFoundException;
 
 import java.util.List;
-
-import com.example.sss.lms.dto.CreateUserDto;
-import com.example.sss.lms.dto.LoginDto;
-import com.example.sss.lms.dto.LoginResponseDto;
-import com.example.sss.lms.dto.StudentEnrolledDto;
-import com.example.sss.lms.dto.UserCoursesDto;
 
 public interface UserService {
     Integer signup(CreateUserDto dto);

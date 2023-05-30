@@ -37,12 +37,12 @@ public class AppExceptionHandler {
         return errors;
     }
 
-    // @ResponseStatus(HttpStatus.BAD_REQUEST)
-    // @ExceptionHandler({UserNotFoundException.class,CourseNotFoundException.class,GradesAndFeedbackNotFoundException.class,InvalidPasswordException.class,
-    //         DuplicateEventException.class,InvalidRoleException.class,NoEnrollmentFoundException.class,DuplicateUserNameFoundException.class})
-    // public Map<String, String> handleAppExceptions(RuntimeException ex) {
-    //     Map<String, String> errors = new HashMap<>();
-    //     errors.put("msg", ex.getMessage());
-    //     return errors;
-    // }
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler({UserNotFoundException.class,CourseNotFoundException.class,GradesAndFeedbackNotFoundException.class,InvalidPasswordException.class,
+            DuplicateEventException.class,InvalidRoleException.class,NoEnrollmentFoundException.class,DuplicateUserNameFoundException.class})
+    public Map<String, String> handleAppExceptions(RuntimeException ex) {
+        Map<String, String> errors = new HashMap<>();
+        errors.put("msg", ex.getMessage());
+        return errors;
+    }
 }

@@ -7,7 +7,6 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-
 public class UserCoursesDto {
     private long courseId;
 

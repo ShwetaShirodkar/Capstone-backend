@@ -25,8 +25,8 @@ public class QuestionServiceImpl implements QuestionService {
     private final QuestionRepository questionRepository;
     private final QuestionMapper questionMapper;
     private final AnswerRepository answerRepository;
-    
-   
+
+
 
     @Override
     public QuestionDto createQuestion(QuestionDto questionDTO) {
@@ -95,7 +95,7 @@ public class QuestionServiceImpl implements QuestionService {
         question.setAnswer(null);
         questionRepository.save(question);
     }
-    
+
     @Override
     public void deleteQuestion(Long id) {
         Question question = questionRepository.findById(id)

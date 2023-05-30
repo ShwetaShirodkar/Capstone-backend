@@ -12,7 +12,7 @@ import lombok.ToString;
 @Setter
 @Getter
 public class QuestionDto {
-    
+
     private Long id;
     private String studentName;
     private String question;
@@ -22,5 +22,3 @@ public class QuestionDto {
     // Getters and setters
     // ...
 }
-
-

@@ -1,21 +1,20 @@
 package com.example.sss.lms.service;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.example.sss.lms.domain.Courses;
-import com.example.sss.lms.dto.CoursesDto;
 import com.example.sss.lms.exception.CourseNotFoundException;
 import com.example.sss.lms.exception.UserNotFoundException;
 import com.example.sss.lms.repository.CoursesRepository;
 import com.example.sss.lms.util.CourseMapper;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import com.example.sss.lms.dto.CoursesDto;
+
 
 import lombok.AllArgsConstructor;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Transactional
 @AllArgsConstructor

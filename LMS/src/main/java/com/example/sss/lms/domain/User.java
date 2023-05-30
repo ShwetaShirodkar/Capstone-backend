@@ -1,14 +1,8 @@
 package com.example.sss.lms.domain;
 
+import java.time.LocalDate;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -49,8 +43,8 @@ public class User {
     @ManyToMany(mappedBy = "users", cascade = CascadeType.ALL)
     private List<Courses> courses=new ArrayList<>();
 
-    // @OneToMany(mappedBy = "users", cascade=CascadeType.ALL)
-    // private List<GradesAndFeedback> gradesAndFeedback=new ArrayList<>();
+    @OneToMany(mappedBy = "users", cascade=CascadeType.ALL)
+    private List<GradesAndFeedback> gradesAndFeedback=new ArrayList<>();
 
 
 

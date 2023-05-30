@@ -12,8 +12,8 @@ import lombok.ToString;
 @Setter
 @Getter
 public class AnswerDto {
-    
-    
+
+
     private String answer;
 
     // Getters and setters

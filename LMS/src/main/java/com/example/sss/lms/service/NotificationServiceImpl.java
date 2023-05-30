@@ -1,25 +1,23 @@
 package com.example.sss.lms.service;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.example.sss.lms.domain.Notification;
 import com.example.sss.lms.dto.NotificationDto;
 import com.example.sss.lms.exception.NotificationNotFoundException;
 import com.example.sss.lms.repository.NotificationRepository;
 import com.example.sss.lms.util.NotificationMapper;
-
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Transactional
 @AllArgsConstructor
 @Service
 public class NotificationServiceImpl implements NotificationService{
-    
+
     public final NotificationRepository repository;
     public final NotificationMapper mapper;
 
@@ -64,7 +62,7 @@ public class NotificationServiceImpl implements NotificationService{
         notification.setNotification(dto.getNotification());
         repository.save(notification);
 
-    
+
         return 1;
     }
 

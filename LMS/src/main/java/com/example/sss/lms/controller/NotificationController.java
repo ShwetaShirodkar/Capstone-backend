@@ -28,7 +28,7 @@ import lombok.AllArgsConstructor;
 @RequestMapping(value = "/notification")
 @RestController
 public class NotificationController {
-    
+
     private final NotificationService service;
 
     @CrossOrigin

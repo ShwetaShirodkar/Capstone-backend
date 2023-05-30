@@ -5,8 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Builder
-@Setter
 @Getter
+@Setter
 public class AppResponse<T> {
     private String sts;
     private String msg;

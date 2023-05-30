@@ -13,7 +13,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @Setter
 @Getter
-
 public class UserDto {
     private Long userId;
 
