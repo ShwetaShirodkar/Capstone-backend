@@ -2,7 +2,7 @@ package com.example.sss.lms.util;
 
 
 import org.springframework.beans.BeanUtils;
-import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
+
 import org.springframework.stereotype.Component;
 
 
@@ -13,4 +13,5 @@ public class DynamicMapper {
         BeanUtils.copyProperties(entity, dto);
         return dto;
     }
+
 }

@@ -1,13 +1,19 @@
 package com.example.sss.lms.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +21,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.sss.lms.dto.AppResponse;
 import com.example.sss.lms.dto.CreateUserDto;
 import com.example.sss.lms.dto.LoginDto;
+import com.example.sss.lms.dto.LoginResponseDto;
+import com.example.sss.lms.dto.StudentEnrolledDto;
+import com.example.sss.lms.dto.UserCoursesDto;
 import com.example.sss.lms.dto.UserDto;
 import com.example.sss.lms.service.UserService;
 
@@ -38,7 +47,7 @@ public class UserController {
                                                 .bd(sts)
                                                 .build();
 
-        return ResponseEntity.ok().body(res);
+        return ResponseEntity.status(HttpStatus.CREATED).body(res);
     }
 
     @PostMapping(value = "/login", produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE )
@@ -51,11 +60,9 @@ public class UserController {
                                                 .bd(resDto)
                                                 .build();
 
-        return ResponseEntity.ok().body(res);
+        return ResponseEntity.status(HttpStatus.OK).body(res);
     }
-}
-
-@PostMapping(value = "/loginv2", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/loginv2", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<AppResponse<LoginResponseDto>> loginResponseDetails(@Valid @RequestBody LoginDto dto) {
         LoginResponseDto loginUser = service.loginUserForResponse(dto);
         AppResponse<LoginResponseDto> response = AppResponse.<LoginResponseDto>builder()

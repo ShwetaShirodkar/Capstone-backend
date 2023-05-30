@@ -17,6 +17,4 @@ public class CourseMapper {
     {
         return new CoursesDto(domain.getCourseId(),domain.getCourseName(),domain.getFacultyName(),domain.getStartDate(),domain.getEndDate(),domain.getMaterial(),domain.getRecording());
     }
-
-    
 }

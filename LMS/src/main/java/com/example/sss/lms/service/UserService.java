@@ -11,7 +11,6 @@ import com.example.sss.lms.dto.StudentEnrolledDto;
 import com.example.sss.lms.dto.UserCoursesDto;
 
 public interface UserService {
-    
     Integer signup(CreateUserDto dto);
 
     UserDto login(LoginDto dto) throws UserNotFoundException;
