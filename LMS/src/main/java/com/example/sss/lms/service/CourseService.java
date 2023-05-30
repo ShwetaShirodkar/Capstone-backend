@@ -8,6 +8,8 @@ import java.util.List;
 
 public interface CourseService {
 
+
+
     Integer createNewCourse(CoursesDto dto);
 
     List<CoursesDto> all();
@@ -17,6 +19,7 @@ public interface CourseService {
     Integer updateCourse(CoursesDto dto,Long courseId);
 
     CoursesDto fetchCourseDetails(Long id) throws UserNotFoundException;
-
     List<CoursesDto> getCoursesByCourseName(String courseName) throws CourseNotFoundException;
+
+
 }

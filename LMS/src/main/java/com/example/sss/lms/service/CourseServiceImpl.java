@@ -65,13 +65,15 @@ public class CourseServiceImpl implements CourseService {
     public List<CoursesDto> getCoursesByCourseName(String courseName) throws CourseNotFoundException {
         // TODO Auto-generated method stub
         //List<Course> courses = repository.findByCourseName(courseName);
-        
+
         List<CoursesDto> collect = repository.findAllByCourseName(courseName).stream().map(mapper :: toDto).collect(Collectors.toList());
-        
+
         if(collect.isEmpty()) throw new CourseNotFoundException("No courses found");
         return collect;
 
         //return repository.findByCourseName(courseName).stream().map(mapper :: toDto).collect(Collectors.toList());
-        
+
     }
+
+
 }

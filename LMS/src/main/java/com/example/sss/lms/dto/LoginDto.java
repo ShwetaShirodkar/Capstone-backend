@@ -1,5 +1,8 @@
 package com.example.sss.lms.dto;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,6 +10,10 @@ import lombok.Setter;
 @Setter
 @Getter
 public class LoginDto {
+    @NotBlank(message = "User name is mandatory")
+    @NotNull(message = "User name should not be null")
     private String userName;
+    @NotNull(message = "Password should not be null")
+    @NotBlank(message = "Password is mandatory")
     private String password;
 }

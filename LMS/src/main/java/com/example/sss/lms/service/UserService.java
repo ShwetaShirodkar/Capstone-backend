@@ -1,5 +1,6 @@
 package com.example.sss.lms.service;
 import com.example.sss.lms.dto.UserDto;
+import com.example.sss.lms.dto.UserUpadteDto;
 import com.example.sss.lms.exception.UserNotFoundException;
 
 import java.util.List;
@@ -30,6 +31,7 @@ public interface UserService {
     Integer deleteUser(Long userId) throws UserNotFoundException;
 
     Integer updateUser(CreateUserDto dto);
+    UserUpadteDto fetchUserDetails(Long id) throws UserNotFoundException;
 
 
 }

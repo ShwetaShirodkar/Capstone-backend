@@ -13,18 +13,15 @@ import lombok.Setter;
 @AllArgsConstructor
 @Setter
 @Getter
-public class CreateUserDto {
-    private Long id;
+public class UserUpadteDto {
+    private Long userId;
 
     @NotEmpty(message = "Username cant be empty")
     @NotNull(message = "Username cant be null")
     @NotBlank(message = "Username cant be blank")
     private String userName;
 
-    @NotEmpty(message = "Password cant be empty")
-    @NotNull(message = "Password cant be null")
-    @NotBlank(message = "Password cant be blank")
-    private String password;
+//    private String password;
 
     @NotEmpty(message = "role cant be empty")
     @NotNull(message = "role cant be null")

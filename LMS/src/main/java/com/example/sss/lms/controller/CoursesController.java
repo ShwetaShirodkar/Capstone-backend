@@ -94,5 +94,4 @@ public class CoursesController {
         AppResponse<List<CoursesDto>> response = AppResponse.<List<CoursesDto>>builder().sts("success").msg("All Courses").bd(courses).build();
         return ResponseEntity.status(200).body(response);
     }
-
 }
