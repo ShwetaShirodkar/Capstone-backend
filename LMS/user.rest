@@ -3,9 +3,9 @@ POST http://localhost:8080/user/ HTTP/1.1
 content-type: application/json
 
 {
-    "userName" : "ghj",
-    "password" : "123",
-    "role" : "user"
+    "userName" : "ffff",
+    "password" : "Aa@11111",
+    "role" : "faculty"
 }
 
 ### Login

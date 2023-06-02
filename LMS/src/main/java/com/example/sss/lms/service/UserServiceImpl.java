@@ -32,8 +32,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Integer signup(CreateUserDto dto) {
-        if (!"user".equals(dto.getRole()) && !"admin".equals(dto.getRole()) && !"teacher".equals(dto.getRole()))
-            throw new InvalidRoleException("Invalid role! Enter admin/user/teacher");
+        if (!"user".equals(dto.getRole()) && !"admin".equals(dto.getRole()) && !"faculty".equals(dto.getRole()))
+            throw new InvalidRoleException("Invalid role! Enter admin/user/faculty");
         User user = dynamicMapper.convertor(dto, new User());
         if (repository.existsByUserName(user.getUserName())) {
             throw new DuplicateUserNameFoundException("User name  already used.");
@@ -83,31 +83,14 @@ public class UserServiceImpl implements UserService {
         return dynamicMapper.convertor(user, new LoginResponseDto());
     }
 
-//    @Override
-//    public Integer enrollCourse(Long userId, Long coursesId) {
-//        User user = repository.findById(userId)
-//                .orElseThrow(() -> new UserNotFoundException("No User found for " + userId + " ID"));
-//
-//        if (user.getRole().equals("admin"))
-//            throw new InvalidRoleException("Admin can't enroll course");
-//        Courses bookings = courseRepo.findById(coursesId)
-//                .orElseThrow(() -> new CourseNotFoundException("Course not Found for " + coursesId + " id"));
-//
-//        if (user.getCourses().contains(bookings))
-//            throw new DuplicateEventException("Course already enrolled...");
-//        user.getCourses().add(bookings);
-//        repository.save(user);
-//        return 1;
-//
-//    }
+
     @Override
     public Integer enrollCourse(Long userId, Long courseID) {
 
         User user = repository.findById(userId)
                 .orElseThrow(() -> new UserNotFoundException("No User found for " + userId + " ID"));
 
-        // if (user.getRole().equals("admin"))
-        // throw new InvalidRoleException("Admin can't book Event");
+     
         Courses courses = courseRepo.findById(courseID)
                 .orElseThrow(() -> new CourseNotFoundException("Course not Found for " + courseID + " id"));
 
@@ -173,35 +156,6 @@ public class UserServiceImpl implements UserService {
         repository.findById(id).orElseThrow(() -> new CourseNotFoundException("No user found for " + id + " ID"));
     }
 
-//    @Override
-//    public Integer updateUser(CreateUserDto dto, Long userId) {
-//        dto.setId(userId);
-//        repository.save(dynamicMapper.convertor(dto, new User()));
-//        return 1;
-//    }
-
-
-
-    //    @Override
-//    public List<UserCoursesDto> getCurrentEnrollments(Long userId) {
-//        User user = repository.findById(userId)
-//                .orElseThrow(() -> new UserNotFoundException("No User found for " + userId + " ID"));
-//
-//        if (user.getRole().equals("admin"))
-//            throw new InvalidRoleException("No bookings for Admin");
-//
-//        LocalDate currentDate = LocalDate.now();
-//
-//        List<UserCoursesDto> collect = user.getCourses().stream()
-//                .filter(enrollment -> enrollment.getEndDate().isAfter(currentDate))
-//                .map(enrollment -> dynamicMapper.convertor(enrollment, new UserCoursesDto()))
-//                .collect(Collectors.toList());
-//
-//        if (collect.isEmpty())
-//            throw new CourseNotFoundException("No courses found enroll one.");
-//
-//        return collect;
-//    }
 
 
     @Override
@@ -215,6 +169,7 @@ public class UserServiceImpl implements UserService {
         }
         return listusers;
     }
+
     @Override
     public UserUpadteDto fetchUserDetails(Long userId) throws UserNotFoundException {
         isUserPresent(userId);
@@ -223,6 +178,7 @@ public class UserServiceImpl implements UserService {
         Optional<User> op = repository.findById(userId);
         return dynamicMapper.convertor(user, new UserUpadteDto());
     }
+
 //    @Override
 //    public CoursesDto fetchCourseDetails(Long courseID) throws CourseNotFoundException {
 //        Optional<Courses> op = repository.findById(courseID);

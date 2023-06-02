@@ -2,7 +2,7 @@
 POST http://localhost:8080/notification/ HTTP/1.1 
 content-type: application/json
 
-{ "id" : 71, "date" : "2023-08-12", "notification" :"Tomorrow is holiday. " }
+{ "id" : 71, "date" : "2023-08-12", "notification" :"asdfghj" }
 
 ### Get all Notifications 
 GET http://localhost:8080/notification/ HTTP/1.1
